@@ -1,3 +1,5 @@
+
+//Install Faker
 var faker = require('faker');
 var database  = { products : []};
 
