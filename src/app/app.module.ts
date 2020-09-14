@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { TestingComponent } from './testing/testing.component';
 import { TestingComponentComponent } from './testing-component/testing-component.component';
 
+import {HttpClientModule} from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -14,7 +16,8 @@ import { TestingComponentComponent } from './testing-component/testing-component
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
