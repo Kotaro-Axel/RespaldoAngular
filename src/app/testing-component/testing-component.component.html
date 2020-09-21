@@ -1,1 +1,14 @@
-<h1>This is the logging!</h1>
+<div>
+    <p *ngIf = "products.length == 0">
+        No hay nada
+    </p>
+</div>
+
+<div style="padding: 13px" *ngFor="let product of products" class="ItemList">
+    
+    <p> 
+        {{product.id}} | {{product.name}} | {{product.price}}
+    </p>
+
+
+</div>
