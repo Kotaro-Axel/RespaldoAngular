@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "angular-deploy-d0789"
+  },
+  "targets": {
+    "angular-deploy-d0789": {
+      "hosting": {
+        "HelloWorld": [
+          "angular-deploy-d0789"
+        ]
+      }
+    }
   }
 }

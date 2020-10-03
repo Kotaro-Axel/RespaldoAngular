@@ -1,0 +1,5 @@
+
+.formulary{
+    background: rgba(255, 255, 255, .10) !important;
+    backdrop-filter: saturate(180%) blur(15px);
+}
