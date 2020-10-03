@@ -18,11 +18,11 @@
         <ul class="navbar-nav mr-5" *ngIf=" user$ | async as user; else login">
 
             <li class="nav-item" *ngIf="user">
-                <a class="nav-link" href="/" (click)="onLogOut()">Log out --- </a>
+                <a class="nav-link text-p" href="/" (click)="onLogOut()">Log out &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;</a>
             </li>
 
             <li class="nav-item" *ngIf="user">
-                <a class="nav-link" [routerLink]="['/LandingHome']"> Welcome , {{ user.email }} !</a>
+                <a class="nav-link text-p" [routerLink]="['/LandingHome']">{{ user.email }}</a>
             </li>
 
         </ul>
@@ -31,11 +31,11 @@
             <ul class="navbar-nav mr-5">
             
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/LogingHome']">Log in</a>
+                    <a class="nav-link text-p" [routerLink]="['/LogingHome']">Log in</a>
                 </li>
                 
                 <li class="nav-item">
-                    <a class="nav-link" [routerLink]="['/RegisterHome']">Register</a>
+                    <a class="nav-link text-p" [routerLink]="['/RegisterHome']">Register</a>
                 </li>    
         
             </ul>

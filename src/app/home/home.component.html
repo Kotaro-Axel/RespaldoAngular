@@ -1,1 +1,20 @@
-<h1 class="text-danger">Home</h1>
+<div class="container">
+
+    <div class="text-danger mt-5 text-center" *ngIf=" user | async as user; ">
+        <h3>
+            Welcome, {{user.email}}
+        </h3>
+    </div>
+
+    <div class="row custom-section d-flex align-items-center">
+        <div class="col-12 col-lg-4">
+            <h2>Team Work</h2>
+            <h3>Process</h3>
+            <p>This project was made for Web Programming!! keep it Learning!!</p>
+            <a href="#">Learn more</a>
+        </div>
+        <div class="col-12 col-lg-8">
+            <img src="assets/images/mainbenner.png" alt="Team process banner">
+        </div>
+    </div>
+</div>

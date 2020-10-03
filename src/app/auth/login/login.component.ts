@@ -35,4 +35,16 @@ export class LoginComponent implements OnInit {
     }
   }
 
+  async onGoogleLogin() {
+    //TO SERVICE
+    try {
+      const googleUser = this.authSvc.loginGoogle();
+      if (googleUser) {
+        this.router.navigate(['/LandingHome']);
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
 }

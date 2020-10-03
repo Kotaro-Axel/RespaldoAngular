@@ -15,6 +15,7 @@
                         <input formControlName="password" type="password" class="form-control" placeholder="•••••••••">
                     </div>
                     <button type="submit" class="mt-2 btn btn-success btn-lg btn-block">Log in</button>
+                    <button class="mt-2 btn btn-lg btn-block btn-google" (click)="onGoogleLogin()">Sign in with Google</button>                    
                 </form>
                 <div>
                     <p class="text-center mt-3" > Create an account? <a [routerLink]="['/RegisterHome']">Register Here!</a></p>
