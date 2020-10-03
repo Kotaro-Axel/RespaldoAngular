@@ -21,16 +21,16 @@ import { SaleComponent } from './components/sale/sale.component';
 import { UserAdminComponent } from './components/user-admin/user-admin.component';
 //
 
-
 import { HeaderComponent } from './header/header.component';
 
+//Angular/Firebase Modules
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 
-
-import { environment } from './../environments/environment';//Here
+//Import FireBase Configuraton file 
+import { firebaseConfig } from '../environments/config';
 
 
 @NgModule({
@@ -52,7 +52,7 @@ import { environment } from './../environments/environment';//Here
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
+    AngularFireModule.initializeApp(firebaseConfig),
     AngularFireAuthModule
   ],
   providers: [],
