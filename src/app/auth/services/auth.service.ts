@@ -26,6 +26,7 @@ export class AuthService {
 
   async loginGoogle() {
     try {
+      //return this.afAuth.signInWithRedirect(new auth.GoogleAuthProvider());
       return this.afAuth.signInWithPopup( new auth.GoogleAuthProvider());
     } catch (error) {
       console.log(error);

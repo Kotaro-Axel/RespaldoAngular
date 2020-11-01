@@ -33,6 +33,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { firebaseConfig } from '../environments/config';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,7 +46,7 @@ import { firebaseConfig } from '../environments/config';
     SaleComponent,
     UserAdminComponent,
     HeaderComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

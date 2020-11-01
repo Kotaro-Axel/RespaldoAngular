@@ -10,9 +10,9 @@ import { AuthService } from 'src/app/auth/services/auth.service';
 })
 export class HomeComponent implements OnInit {
 
-
-  public user: Observable<any> = this.authSvc.afAuth.user;
   
+  public user: Observable<any> = this.authSvc.afAuth.user;
+
   constructor(private authSvc: AuthService, private router: Router) { }
 
   

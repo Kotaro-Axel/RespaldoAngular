@@ -14,9 +14,7 @@ const routes: Routes = [
 
   //Components for Logging: Angular + Firebase* 
 
-  { path: '', redirectTo: '/LandingHome', pathMatch: 'full'},
-
-  
+  { path: '', redirectTo: '/LandingHome', pathMatch: 'full'},  
   //Home Page
   { path: 'LandingHome', loadChildren: () => import('./home/home.module').then(m => m.HomeModule) },
   

@@ -1,20 +1,32 @@
-<div class="container">
 
-    <div class="text-danger mt-5 text-center" *ngIf=" user | async as user; ">
-        <h3>
-            Welcome, {{user.email}}
-        </h3>
-    </div>
+<div class="container-lg pt-5" *ngIf=" user | async as user; else landing">
+    <div class="row">
 
-    <div class="row custom-section d-flex align-items-center">
-        <div class="col-12 col-lg-4">
-            <h2>Team Work</h2>
-            <h3>Process</h3>
-            <p>This project was made for Web Programming!! keep it Learning!!</p>
-            <a href="#">Learn more</a>
+        <div class="col-md-3">
+            <app-new-note></app-new-note>
         </div>
-        <div class="col-12 col-lg-8">
-            <img src="assets/images/mainbenner.png" alt="Team process banner">
+
+        <div class="col-md-9">
+            <app-notes></app-notes>
         </div>
+
     </div>
 </div>
+
+<ng-template #landing>
+    <div class="container">
+        <div class="row custom-section d-flex align-items-center">
+            <div class="col-12 col-lg-4">
+                <h2>NotePad App+</h2>
+                <h3>Out now!</h3>
+                <p>Take notes the simple way for free. Forever.
+                    Create, Update and Delete notes On-line!</p>
+                <a [routerLink]="['/LogingHome']">Lets get Started!</a>
+            </div>
+
+            <div class="col-12 col-lg-8">
+                <img src="assets/images/mainbenner.png" alt="Team process banner">
+            </div>
+        </div>
+    </div>
+</ng-template>
