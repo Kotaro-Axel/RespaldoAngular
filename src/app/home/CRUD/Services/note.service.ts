@@ -1,24 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Note } from '../Model/Note';
+import { Alumno } from '../Model/Alumno';
+import { HttpClient } from "@angular/common/http";
+import { Observable } from 'rxjs';
 
-
-const NoteList = [
-  {
-    "id": 1,
-    "title": "Shopping List",
-    "description": "2 eggs, 1 Soda, 1kg Sugar"
-  },
-  {
-    "id": 2,
-    "title": "Home Work",
-    "description": "Math, Programming, Design, English"
-  },
-  {
-    "id": 3,
-    "title": "Passwords",
-    "description": "Mail Password: axel713281"
-  }
-]
 
 @Injectable({
   providedIn: 'root'
@@ -28,28 +13,53 @@ const NoteList = [
 
 export class NoteService {
 
-  constructor() { }
+  constructor( private http: HttpClient) { }
 
-  getNotes(){
-    return NoteList;
+  private API_REST = 'https://backend-web-dj.herokuapp.com/api/v1/alumnos/?ordering=id';
+  private API_REST_Meths = 'https://backend-web-dj.herokuapp.com/api/v1/alumnos/';
+
+
+  //GET Request
+  getAllAlumns(): Observable<Alumno[]> {
+    return this.http.get<Alumno[]>(this.API_REST);
   }
 
-  getOneNote(_id){
-    return NoteList.find(note => note.id === _id);
+  getOneAlumn(id: string): Observable<Alumno>{
+    
+    this.API_REST_Meths = `${this.API_REST_Meths}/${id}`;
+    return this.http.get<Alumno>(this.API_REST_Meths);
   }
 
-  addNote(note : Note){
-    NoteList.push(note);
+  //POST Request
+  addNewAlumn(alumno:Alumno): Observable<Alumno> {
+    return this.http.post<Alumno>(this.API_REST_Meths,alumno);
   }
 
-  editNote(newNoteEdit){
-    const index = NoteList.findIndex(note => note.id === newNoteEdit);
-    NoteList[index] = newNoteEdit;
+  //PUT Request: 
+  editAlumn(alumno:Alumno, id): Observable<Alumno>{
+    this.API_REST_Meths=`https://backend-web-dj.herokuapp.com/api/v1/format/alumnos/${id}/`;
+    console.log(id , "----" , alumno , "----" , this.API_REST_Meths); 
+    return this.http.put<Alumno>(this.API_REST_Meths,alumno);
   }
 
-  deleteNote(_id){
-    NoteList.splice(_id, 1);
+  //Delete Request:
+  deleteAlumn(id): Observable<{}>{
+    console.log(id);
+    this.API_REST_Meths = `https://backend-web-dj.herokuapp.com/api/v1/format/alumnos/${id}/`;
+    console.log(this.API_REST_Meths);
+    return this.http.delete(this.API_REST_Meths);
   }
+
+
+
+
+
+
+  getNotes(){}
+  getOneNote(_id){}
+  addNote(note : Note){}
+  editNote(newNoteEdit){}
+  deleteNote(_id){}
 
 
 }

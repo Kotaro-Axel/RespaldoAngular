@@ -1,25 +1,38 @@
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title text-center">New Note</h3>
+        <h3 class="card-title text-center">New Alumn</h3>
     </div>
-
     <div class="card-body">
+
         <form #myform>
+
             <div class="form-group">
-                <label for="">Title</label>
-                <input name="title" type="text" class="form-control" aria-describedby="title" placeholder="Title"
-                [(ngModel)]="newNote.title">
+                <label for="">Matricula</label>
+                <input class="form-control" type="text" aria-describedby="school_controll" required
+                    [(ngModel)]="newAlumn.school_controll" name="school_controll">
             </div>
 
             <div class="form-group">
-                <label for="">Description</label>
-                <textarea class="form-control" name="description" placeholder="Description"
-                [(ngModel)]="newNote.description"></textarea>
+                <label for="">Nombre</label>
+                <input class="form-control" type="text" aria-describedby="name" required
+                [(ngModel)]="newAlumn.name" name="name">
             </div>
 
-            <button (click)="addNote()" type="submit" class="text-white btn bg-success btn-lg btn-block">Add Note</button>
+            <div class="form-group">
+                <label for="">Edad</label>
+                <input class="form-control" type="number" aria-describedby="age" required
+                [(ngModel)]="newAlumn.age" name="age">
+            </div>
+
+            <div class="form-group">
+                <label for="">Email</label>
+                <input class="form-control" type="email" aria-describedby="email" required
+                    [(ngModel)]="newAlumn.email" name="email">
+            </div>
+
+            <button class="btn btn-success btn-lg btn-block" (click)="addAlumn()" type="submit">Add Alumn</button>
 
         </form>
-    </div>
 
+    </div>
 </div>

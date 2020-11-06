@@ -11,19 +11,28 @@ export class NotesComponent implements OnInit {
   constructor(private listServ: NoteService) { }
 
 
-  myNote;
-  noteFound;
+  identifier = 0;
+  identifier2 = 0;
+
+  replaceAlumn = {
+    id: null,
+    school_controll: 1912,
+    name: '',
+    age: 18,
+    email: '',
+  }
+
 
   ngOnInit(): void {
   }
 
-  getPositions($event){
-    this.myNote = this.listServ.getOneNote($event);
-    this.noteFound = this.myNote;
+
+  delete(id){
+    this.listServ.deleteAlumn(id).subscribe();
   }
 
-  editNote(){
-    this.listServ.editNote(this.noteFound);
+  editNote(id){
+    this.listServ.editAlumn(this.replaceAlumn, this.identifier2).subscribe();
   }
 
 }

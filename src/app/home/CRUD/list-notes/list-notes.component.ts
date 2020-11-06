@@ -1,6 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { NoteService } from '../Services/note.service';
 import {Note} from '../Model/Note';
+import { Alumno } from '../Model/Alumno';
 
 @Component({
   selector: 'app-list-notes',
@@ -11,13 +12,18 @@ export class ListNotesComponent implements OnInit {
 
   @Output() sendPositions = new EventEmitter();
 
+  alumns : Alumno[];
+  
   myNotes : Note[];
 
   constructor(private listServ : NoteService) { }
 
   ngOnInit(): void {
-    this.myNotes = this.listServ.getNotes();
-    console.log("Notes : " , this.myNotes );
+    this.listServ.getAllAlumns().subscribe( data => (this.alumns=data));
+  }
+
+  render(): void {
+    this.listServ.getAllAlumns().subscribe( data => (this.alumns=data));
   }
 
   getPositions(_id){
@@ -25,8 +31,9 @@ export class ListNotesComponent implements OnInit {
   }
 
 
-  deleteNote(index){
-    this.listServ.deleteNote(index);
+  deleteNote(index):void{
+    console.log(index);
+    this.listServ.deleteAlumn(index).subscribe();
   }
 
 }

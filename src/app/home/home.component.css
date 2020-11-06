@@ -19,7 +19,7 @@ h2, h3, p, a{
 
 .custom-section .col-lg-4 h2 {
   font-weight: 700;
-  font-size: 63px;
+  font-size: 50px;
   color: #000;
   margin-bottom: 0;
   line-height: 1;
@@ -28,7 +28,7 @@ h2, h3, p, a{
 
 .custom-section .col-lg-4 h3 {
   font-weight: 300;
-  font-size: 64px;
+  font-size: 50px;
   color: #000;
   line-height: 1;
 }
@@ -37,24 +37,20 @@ h2, h3, p, a{
   color: #000;
   font-size: 14px;
   margin-top: 30px;
+  font-weight: 400;
 }
 
 .custom-section .col-lg-4 a {
   display: inline-block;
   padding: 8px 22px;
   color: #fff;
-  background-color: #1EA5F7;
   border: 1px solid transparent;
   margin-top: 60px;
   text-decoration: none;
   transition: 0.5s cubic-bezier(0.785, 0.135, 0.15, 0.86);
+  border-radius: 6px;
 }
 
-.custom-section .col-lg-4 a:hover {
-  color: #1EA5F7;
-  background-color: #fff;
-  border: 1px solid #1EA5F7;
-}
 
 .custom-section .col-lg-8 img {
   width: 100%;

@@ -1,34 +1,101 @@
-<div class="container">
-    <h3 class="ml-3">My Notes</h3>
-    
-    <div class="col-md-12">
-        <div class="row">
+<div class="container bg">
 
-            <div class="col-md-4 mt-4" *ngFor="let note of myNotes; let i = index">
-               
-                <div class="mh-10 card bg-primaryy shadow p-3">
-                   <div class="card-body">
-                       <h4>{{note.title}}</h4>
-                       <hr>
-                       <p class="card-text">{{note.description}}</p>
-                       
-                       <hr>
-                       
-                       <div class="row justify-content-between container">
-                            <div class="col-md-6">
-                                <button type="button" (click)="getPositions(note.id)"  class="btn btn-warning" data-toggle="modal" data-target="#editmodal"> Edit </button>
-                            </div>
-                            <div class="col-md-6">
-                                <button type="button" (click)="deleteNote(i)" class="btn btn-danger ml-2"> Delete </button>
-                            </div>
-                       </div>
+  <div class="Site p-4">
+    <h3 class class="ml-3">My Alumns</h3>
 
-                   </div>
-               </div> 
-            
-            </div>
-        
-        </div>
+    <div class="Site2 ml-auto">
+      <div>
+        <Button (click)="render()" class=" btn btn-outline-info Site2">
+          <label class="letter text-center" for="">Refresh</label>
+          <img class="img-ee mt-1" src="../../../../assets/images/Refresh-ng.png" alt="">
+        </Button>
+      </div>
+      <div>
+        <Button (click)="render()" class=" btn btn-outline-warning Site2" data-toggle="modal"
+          data-target="#editModal">
+          <label class="letter text-center" for="">Edit</label>
+          <img class="img-ee mt-1" src="../../../../assets/images/edit.png" alt="">
+        </Button>
+      </div>
+      <div>
+        <Button (click)="render()" class=" btn btn-outline-danger Site2" data-toggle="modal"
+          data-target="#deleteModal">
+          <label class="letter text-center" for="">Delete</label>
+          <img class="img-ee mt-1" src="../../../../assets/images/delete.png" alt="">
+        </Button>
+      </div>
     </div>
+
+  </div>
+
+  <div class="row col-md-12 col-md-offset-2 custyle bg1">
+
+    <table class="hh table table-striped custab table-hover">
+
+      <thead>
+        <tr>
+          <th>iD</th>
+          <th>Matricula</th>
+          <th class="text-center">Nombre</th>
+          <th class="text-center">Edad</th>
+          <th class="text-center">Email</th>
+        </tr>
+      </thead>
+
+      <tr *ngFor="let alumno of alumns; let i = index">
+        <td>{{alumno.id}}</td>
+        <td>{{alumno.school_controll}}</td>
+        <td>{{alumno.name}}</td>
+        <td>{{alumno.age}}</td>
+        <td>{{alumno.email}}</td>
+      </tr>
+
+    </table>
+
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+  <div class="col-md-12">
+    <div class="row">
+
+      <div class="col-md-4 mt-4" *ngFor="let note of myNotes; let i = index">
+
+        <div class="mh-10 card bg-primaryy shadow p-3">
+          <div class="card-body">
+            <h4>{{note.title}}</h4>
+            <hr>
+            <p class="card-text">{{note.description}}</p>
+
+            <hr>
+
+            <div class="row justify-content-between container">
+              <div class="col-md-6">
+                <button type="button" (click)="getPositions(note.id)" class="btn btn-warning" data-toggle="modal"
+                  data-target="#editmodal"> Edit </button>
+              </div>
+              <div class="col-md-6">
+                <button type="button" (click)="deleteNote(i)" class="btn btn-danger ml-2"> Delete </button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
 
 </div>

@@ -9,29 +9,36 @@ import { NoteService } from '../Services/note.service';
 })
 export class NewNoteComponent implements OnInit {
 
-  constructor(private listServ : NoteService) { }
+  constructor(private listServ: NoteService) { }
 
+  myId = 0;
 
-  myId = 4;
-
-  newNote = {
-    id: this.myId,
-    title: '',
-    description: ''
+  newAlumn = {
+    id: null,
+    school_controll: 1912,
+    name: '',
+    age: 18,
+    email: '1912**@ids.upchiapas.edu.mx',
   }
 
   ngOnInit(): void {
-    console.log('Si funciono!!!!');  
+    console.log('Si funciono!!!!');
   }
 
-  addNote(){
-    this.listServ.addNote(this.newNote);
-    this.myId ++;
-    this.newNote = {
-      id:this.myId,
-      title : '',
-      description : ''
-    }
+  addAlumn() {
+    this.listServ.addNewAlumn(this.newAlumn).subscribe(data => console.log(data));
+    this.newAlumn = {
+      id: null,
+      school_controll: 1912,
+      name: '',
+      age: 18,
+      email: '1912**@ids.upchiapas.edu.mx',
+    };
+    //this.Refresh();
+  }
+
+  Refresh() {
+    window.location.reload();
   }
 
 }

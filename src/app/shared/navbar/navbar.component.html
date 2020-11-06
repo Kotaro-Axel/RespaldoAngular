@@ -1,6 +1,6 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-info">
+<nav class="navbar navbar-expand-lg navbar-dark bg-success">
 
-    <a class="navbar-brand" href="\">Notepad App+</a>
+    <a class="ml-5 navbar-brand" href="\">Platinum UP Chiapas</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01"
         aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarColor01">
 
         <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
+            <li class="ml-5 nav-item active">
                 <a class="nav-link" [routerLink]="['/LandingHome']">Home</a>
             </li>
         </ul>
@@ -18,11 +18,11 @@
         <ul class="navbar-nav mr-5" *ngIf=" user$ | async as user; else login">
 
             <li class="nav-item" *ngIf="user">
-                <a class="nav-link text-p" href="/" (click)="onLogOut()">Log out &nbsp;&nbsp;|&nbsp;&nbsp;</a>
+                <a class="nav-link active text-p" href="/" (click)="onLogOut()">Log out &nbsp;&nbsp;|&nbsp;&nbsp;</a>
             </li>
 
             <li class="nav-item" *ngIf="user">
-                <a class="nav-link text-p" [routerLink]="['/LandingHome']">{{ user.email }}</a>
+                <a class="nav-link active text-p" [routerLink]="['/LandingHome']">{{ user.email }}</a>
             </li>
 
         </ul>

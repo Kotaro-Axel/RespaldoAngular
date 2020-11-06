@@ -1,3 +1,7 @@
 .text-p{
     font-size: 16.5px;
 }
+
+.active {
+    color:#000;
+ }

@@ -9,12 +9,13 @@ import { NewNoteComponent} from './CRUD/new-note/new-note.component';
 import { ListNotesComponent} from './CRUD/list-notes/list-notes.component';
 import { NotesComponent} from './CRUD/notes/notes.component';
 
-import { FormsModule } from '@angular/forms';
+import { ReactiveFormsModule,FormsModule } from '@angular/forms';
+
 
 
 @NgModule({
   declarations: [
-    HomeComponent, 
+    HomeComponent,
     NewNoteComponent,
     ListNotesComponent,
     NotesComponent,
@@ -22,6 +23,7 @@ import { FormsModule } from '@angular/forms';
   imports: [
     CommonModule,
     HomeRoutingModule,
+    ReactiveFormsModule,
     FormsModule,
   ]
 })
