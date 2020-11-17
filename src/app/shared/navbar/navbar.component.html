@@ -15,14 +15,14 @@
             </li>
         </ul>
 
-        <ul class="navbar-nav mr-5" *ngIf=" user$ | async as user; else login">
+        <ul class="navbar-nav mr-5" *ngIf="user$; else login">
 
-            <li class="nav-item" *ngIf="user">
+            <li class="nav-item" *ngIf="user$">
                 <a class="nav-link active text-p" href="/" (click)="onLogOut()">Log out &nbsp;&nbsp;|&nbsp;&nbsp;</a>
             </li>
 
-            <li class="nav-item" *ngIf="user">
-                <a class="nav-link active text-p" [routerLink]="['/LandingHome']">{{ user.email }}</a>
+            <li class="nav-item" *ngIf="user$">
+                <a class="nav-link active text-p" [routerLink]="['/LandingHome']">{{ CurrentUser.username }}</a>
             </li>
 
         </ul>
@@ -39,7 +39,6 @@
                 </li>    
         
             </ul>
-
         </ng-template>
 
     </div>

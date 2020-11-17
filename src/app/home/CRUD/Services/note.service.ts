@@ -9,8 +9,6 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 
-
-
 export class NoteService {
 
   constructor( private http: HttpClient) { }
@@ -38,28 +36,13 @@ export class NoteService {
   //PUT Request: 
   editAlumn(alumno:Alumno, id): Observable<Alumno>{
     this.API_REST_Meths=`https://backend-web-dj.herokuapp.com/api/v1/format/alumnos/${id}/`;
-    console.log(id , "----" , alumno , "----" , this.API_REST_Meths); 
     return this.http.put<Alumno>(this.API_REST_Meths,alumno);
   }
 
   //Delete Request:
   deleteAlumn(id): Observable<{}>{
-    console.log(id);
     this.API_REST_Meths = `https://backend-web-dj.herokuapp.com/api/v1/format/alumnos/${id}/`;
-    console.log(this.API_REST_Meths);
     return this.http.delete(this.API_REST_Meths);
   }
-
-
-
-
-
-
-  getNotes(){}
-  getOneNote(_id){}
-  addNote(note : Note){}
-  editNote(newNoteEdit){}
-  deleteNote(_id){}
-
 
 }

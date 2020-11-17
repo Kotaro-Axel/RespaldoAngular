@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AppUser } from '../Models/AppUser';
 import { AuthService } from '../services/auth.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-login',
@@ -11,9 +13,13 @@ import { AuthService } from '../services/auth.service';
 })
 export class LoginComponent implements OnInit {
 
+  public newLoggin:AppUser;
+
+
   loginForm = new FormGroup({
+    username: new FormControl(''),
     email: new FormControl(''),
-    password: new FormControl('')
+    password: new FormControl(''),
   });
 
   constructor(private authSvc: AuthService, private router: Router) { }
@@ -22,16 +28,33 @@ export class LoginComponent implements OnInit {
 
   }
 
-  async onLogin() {
-    const { email, password } = this.loginForm.value;
-    try {
-      const user = await this.authSvc.login(email, password);
-      if (user) {
-        //Redirect to Home Page
-        this.router.navigate(['/LandingHome']);
+
+  async onLogin(){
+
+    this.newLoggin = {} = await this.loginForm.value;
+    this.newLoggin.password2=this.newLoggin.password1;
+    let form =  this.isValid(this.newLoggin);
+    if (form) {
+      try {
+        let Response = this.authSvc.authLogin(this.newLoggin).subscribe(data=>{
+          this.router.navigate(['/LandingHome']);
+        });
+      } catch (error) {
+        console.log(error);
+        this.serverError();      
       }
-    } catch (error) {
-      console.log(error);
+    }else{
+      this.FormAlert();
+    }
+
+  }
+
+  isValid(user:AppUser) {
+
+    if (user.username != '' && user.email != '' && user.password1 != '' && user.email.includes('@') && user.email.includes('.com')) {
+      return true;
+    } else {
+      return false;
     }
   }
 
@@ -46,5 +69,46 @@ export class LoginComponent implements OnInit {
       console.log(error);
     }
   }
+
+  FormAlert() {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Usuario o Contraseña Incorrectos, Ingresa nuevamente los datos',
+    })
+  }
+
+  SuccessAlert() {
+    Swal.fire({
+      position: 'top',
+      icon: 'success',
+      title: 'Sesion Iniciada Correctamente',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+
+  PassAlert() {
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Las Contraseñas no Coinciden!',
+    })
+  }
+
+  serverError(){
+    Swal.fire({
+      icon: 'error',
+      title: 'Oops...',
+      text: 'Error en el servidor!',
+    })
+  }
+
+
+  successNotification() {
+    Swal.fire('Hi', 'We have been informed!', 'success')
+  }
+
+ 
 
 }

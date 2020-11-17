@@ -6,16 +6,25 @@
             <div class="card-body formulary">
                 <h3 class="text-center">Log in</h3>
                 <form [formGroup]="loginForm" (ngSubmit)="onLogin()">
+                
+                    <div class="form-group">
+                        <label class="mt-3" for="email"> User Name</label>
+                        <input formControlName="username" type="text" class="form-control" placeholder="@example.edu.mx" required>
+                    </div>
+
                     <div class="form-group">
                         <label class="mt-3" for="email"> E-mail</label>
-                        <input formControlName="email" type="email" class="form-control" placeholder="@example.edu.mx">
+                        <input formControlName="email" type="email" class="form-control" placeholder="@example.edu.mx" required>
                     </div>
+
                     <div class="form-group">
                         <label class="mt-3" for="password">Password</label>
-                        <input formControlName="password" type="password" class="form-control" placeholder="•••••••••">
+                        <input formControlName="password" type="password" class="form-control" placeholder="•••••••••" required>
                     </div>
+                
                     <button type="submit" class="mt-2 btn btn-success btn-lg btn-block">Log in</button>
                     <button class="mt-2 btn btn-lg btn-block btn-google" (click)="onGoogleLogin()">Sign in with Google</button>                    
+                
                 </form>
                 <div>
                     <p class="text-center mt-3" > Create an account? <a [routerLink]="['/RegisterHome']">Register Here!</a></p>
