@@ -13,8 +13,9 @@ export class NoteService {
 
   constructor( private http: HttpClient) { }
 
-  private API_REST = 'https://backend-web-dj.herokuapp.com/api/v1/alumnos/?ordering=id';
-  private API_REST_Meths = 'https://backend-web-dj.herokuapp.com/api/v1/alumnos/';
+  //https://backend-web-dj.herokuapp.com/         http://127.0.0.1:8000/
+  private API_REST = 'http://127.0.0.1:8000/api/v1/alumnos/?ordering=id';
+  private API_REST_Meths = 'http://127.0.0.1:8000/api/v1/alumnos/';
 
 
   //GET Request
@@ -23,7 +24,6 @@ export class NoteService {
   }
 
   getOneAlumn(id: string): Observable<Alumno>{
-    
     this.API_REST_Meths = `${this.API_REST_Meths}/${id}`;
     return this.http.get<Alumno>(this.API_REST_Meths);
   }
@@ -35,13 +35,13 @@ export class NoteService {
 
   //PUT Request: 
   editAlumn(alumno:Alumno, id): Observable<Alumno>{
-    this.API_REST_Meths=`https://backend-web-dj.herokuapp.com/api/v1/format/alumnos/${id}/`;
+    this.API_REST_Meths=`http://127.0.0.1:8000/api/v1/format/alumnos/${id}/`;
     return this.http.put<Alumno>(this.API_REST_Meths,alumno);
   }
 
   //Delete Request:
   deleteAlumn(id): Observable<{}>{
-    this.API_REST_Meths = `https://backend-web-dj.herokuapp.com/api/v1/format/alumnos/${id}/`;
+    this.API_REST_Meths = `http://127.0.0.1:8000/api/v1/format/alumnos/${id}/`;
     return this.http.delete(this.API_REST_Meths);
   }
 

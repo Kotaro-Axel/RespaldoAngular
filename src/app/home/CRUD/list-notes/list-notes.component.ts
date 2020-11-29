@@ -32,7 +32,6 @@ export class ListNotesComponent implements OnInit {
 
 
   deleteNote(index):void{
-    console.log(index);
     this.listServ.deleteAlumn(index).subscribe();
   }
 

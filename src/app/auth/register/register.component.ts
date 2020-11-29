@@ -36,12 +36,12 @@ export class RegisterComponent implements OnInit {
     let form = await this.isValid(this.newuser);
     if (form) {
       try {
-        let Response = await this.authSvc.authRegister(this.newuser).subscribe(data => {
-          this.router.navigate(['/LandingHome']);
+        let Response = await this.authSvc.authRegister(this.newuser).subscribe(async data => {
           this.SuccessAlert();
+          await this.router.navigate(['/LandingHome']);
+          window.location.reload();
         })
       } catch (error) {
-        console.log(error);
         this.serverError();
       }
     } else {
@@ -76,7 +76,7 @@ export class RegisterComponent implements OnInit {
     })
   }
 
-  serverError(){
+  serverError() {
     Swal.fire({
       icon: 'error',
       title: 'Oops...',
@@ -99,5 +99,5 @@ export class RegisterComponent implements OnInit {
     Swal.fire('Hi', 'We have been informed!', 'success')
   }
 
- 
+
 }

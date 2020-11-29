@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { auth } from 'firebase/app';
 import { AngularFireAuth } from '@angular/fire/auth';
-import { User } from 'firebase';
-import { first } from 'rxjs/operators';
 import { AppUser } from '../Models/AppUser';
 import { AuthResponse } from '../Models/AuthResponse';
 import { HttpClient } from "@angular/common/http";
@@ -20,7 +18,7 @@ export class AuthService {
   private appuser: AppUser;
   private CurrentUser: AppUser;
 
-  private API_REST = 'https://backend-web-dj.herokuapp.com/api/v1/auth/'
+  private API_REST = 'http://127.0.0.1:8000/api/v1/auth/'
   private Token;
 
 
@@ -75,23 +73,8 @@ export class AuthService {
     this.loggedIn.next(false);
     localStorage.removeItem("ACCESS_TOKEN");
     localStorage.removeItem("CurrentUser");
+    return this.http.post(`${this.API_REST}logout/`,{})
   }
-
-  // authLogout(key=''):Observable<AuthResponse>{
-
-  //   return this.http.post<AuthResponse>(`${this.API_REST}logout/`,
-  //     null).pipe(tap(
-  //       (res: AuthResponse) =>{
-  //         if(res){
-  //           this.Token='';
-  //           this.CurrentUser=null;
-  //           this.loggedIn.next(false);
-  //           localStorage.removeItem("ACCESS_TOKEN");
-  //           localStorage.removeItem("CurrentUser");
-  //         }
-  //       })
-  //     );
-  // }
 
   private setToken(token: string, newuser: AppUser) {
     localStorage.setItem('ACCESS_TOKEN', token);

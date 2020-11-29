@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable , BehaviorSubject } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import Swal from 'sweetalert2';
 
@@ -28,19 +28,15 @@ export class NavbarComponent implements OnInit {
   async onLogOut() {
     let uToken = this.UserToken;
     try {
-
-      let Response = this.authSvc.authLogout();
+      let Response = await this.authSvc.authLogout().subscribe();
       this.user$ = false;
-      // let Response =  this.authSvc.authLogout(uToken).subscribe(data => {
-      //   this.router.navigate(['/LandingHome']);
-      // });
+      await this.router.navigate(['/LandingHome']);
     } catch (error) {
       this.serverError();      
     }
   }
 
   getCurrentAppUser() {
-
     let token = localStorage.getItem('ACCESS_TOKEN');
     let user = JSON.parse(localStorage.getItem('CurrentUser'));
     if (user && token) {

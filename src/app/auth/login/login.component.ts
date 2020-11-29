@@ -36,8 +36,9 @@ export class LoginComponent implements OnInit {
     let form =  this.isValid(this.newLoggin);
     if (form) {
       try {
-        let Response = this.authSvc.authLogin(this.newLoggin).subscribe(data=>{
-          this.router.navigate(['/LandingHome']);
+        let Response = this.authSvc.authLogin(this.newLoggin).subscribe(async data=>{
+          await this.router.navigate(['/LandingHome']);
+          await window.location.reload();
         });
       } catch (error) {
         console.log(error);

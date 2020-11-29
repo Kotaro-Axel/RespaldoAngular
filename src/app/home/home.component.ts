@@ -17,12 +17,13 @@ export class HomeComponent implements OnInit {
   private isLogged;
   private CurrentUser;
   private UserToken;
-  public user$ = true;
+  public user$ = false;
 
   constructor(private authSvc: AuthService, private router: Router) { }
 
   
   ngOnInit(): void {
+    this.getCurrentAppUser();
   }
 
   getCurrentAppUser() {
