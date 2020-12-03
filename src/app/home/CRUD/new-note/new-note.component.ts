@@ -26,7 +26,7 @@ export class NewNoteComponent implements OnInit {
   }
 
   addAlumn() {
-    this.listServ.addNewAlumn(this.newAlumn).subscribe(data => console.log(data));
+    this.listServ.addNewAlumn(this.newAlumn).subscribe(data => {});
     this.newAlumn = {
       id: null,
       school_controll: 1912,

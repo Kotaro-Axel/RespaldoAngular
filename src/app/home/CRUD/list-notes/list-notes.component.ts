@@ -13,8 +13,6 @@ export class ListNotesComponent implements OnInit {
   @Output() sendPositions = new EventEmitter();
 
   alumns : Alumno[];
-  
-  myNotes : Note[];
 
   constructor(private listServ : NoteService) { }
 

@@ -41,7 +41,6 @@ export class LoginComponent implements OnInit {
           await window.location.reload();
         });
       } catch (error) {
-        console.log(error);
         this.serverError();      
       }
     }else{

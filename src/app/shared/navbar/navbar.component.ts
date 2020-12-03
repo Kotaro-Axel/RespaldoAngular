@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable , BehaviorSubject } from 'rxjs';
 import { AuthService } from 'src/app/auth/services/auth.service';
 import Swal from 'sweetalert2';
 
@@ -45,7 +44,7 @@ export class NavbarComponent implements OnInit {
       this.UserToken = token;
       this.user$ = true;
     } else {
-      console.log('No Current User');
+      let output = 'No CurrentUser'
     }
   }
 

@@ -18,7 +18,7 @@ export class AuthService {
   private appuser: AppUser;
   private CurrentUser: AppUser;
 
-  private API_REST = 'http://127.0.0.1:8000/api/v1/auth/'
+  private API_REST = 'https://backend-web-dj.herokuapp.com/api/v1/auth/'
   private Token;
 
 
@@ -29,7 +29,6 @@ export class AuthService {
       //return this.afAuth.signInWithRedirect(new auth.GoogleAuthProvider());
       return this.afAuth.signInWithPopup(new auth.GoogleAuthProvider());
     } catch (error) {
-      console.log(error);
     }
   }
 
@@ -49,7 +48,6 @@ export class AuthService {
           })
         );
     } catch (error) {
-      console.log('error : ' + error);
     }
   }
 

@@ -36,7 +36,7 @@ export class HomeComponent implements OnInit {
       this.UserToken = token;
       this.user$ = true;
     } else {
-      console.log('No Current User');
+      
     }
   }
 
