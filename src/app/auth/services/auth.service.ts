@@ -12,7 +12,7 @@ import { tap } from 'rxjs/operators';
 })
 
 export class AuthService {
-
+  /*App*/
   private loggedIn = new BehaviorSubject<boolean>(false);
 
   private appuser: AppUser;
