@@ -18,7 +18,7 @@ export class AuthService {
   private appuser: AppUser;
   private CurrentUser: AppUser;
 
-  private API_REST = 'https://backend-web-dj.herokuapp.com/api/v1/auth/'
+  private API_REST = 'http://54.237.111.188/api/v1/auth/'
   private Token;
 
 
